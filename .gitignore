@@ -1,2 +1,5 @@
 .commandcode/
 .DS_Store
+.env
+data/
+*.tmp

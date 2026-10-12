@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#000000">
+  <meta name="description" content="A minimal TOTP generator. Codes are generated in your browser; the secret is sent to the server only when you create a share link.">
+  <title>TOTP Generator</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app">
+    <h1 class="title">TOTP Generator</h1>
+
+    <div class="field" id="secret-field">
+      <label class="sr-only" for="secret">Secret key</label>
+      <input
+        class="input"
+        id="secret"
+        name="secret"
+        type="text"
+        placeholder="Enter your secret key"
+        autocomplete="off"
+        autocapitalize="off"
+        autocorrect="off"
+        spellcheck="false"
+        aria-describedby="status"
+      >
+    </div>
+
+    <p class="status" id="status" role="alert" hidden></p>
+
+    <section class="output" id="output" hidden>
+      <div class="otp-row">
+        <output class="otp" id="otp" for="secret"></output>
+        <button class="copy" id="copy" type="button">Copy</button>
+      </div>
+
+      <div class="timer">
+        <div class="bar" aria-hidden="true">
+          <div class="bar-fill" id="bar"></div>
+        </div>
+        <span class="countdown">
+          <span class="sr-only">Time remaining:</span>
+          <span id="countdown">60s</span>
+        </span>
+      </div>
+    </section>
+
+    <div class="share" id="share" hidden>
+      <button class="action" id="share-create" type="button">Generate share link</button>
+
+      <p class="status is-muted" id="share-status" role="status" hidden></p>
+
+      <div class="share-result" id="share-result" hidden>
+        <div class="share-url-row" id="share-url-row">
+          <output class="share-url" id="share-url"></output>
+          <button class="copy" id="share-copy" type="button">Copy</button>
+        </div>
+        <p class="share-meta" id="share-meta"></p>
+        <button class="action" id="revoke" type="button">Revoke link</button>
+      </div>
+    </div>
+  </main>
+
+  <noscript>
+    <p class="noscript">This tool requires JavaScript.</p>
+  </noscript>
+
+  <script src="app.js"></script>
+</body>
+</html>

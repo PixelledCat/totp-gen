@@ -1,0 +1,32 @@
+[Unit]
+Description=TOTP Generator share-link API
+Documentation=https://ezlife.space/totp-gen/
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=totpgen
+Group=totpgen
+WorkingDirectory=/totp-gen/server
+EnvironmentFile=/etc/totp-gen/api.env
+ExecStart=/usr/bin/node /totp-gen/server/server.js
+Restart=on-failure
+RestartSec=2
+
+NoNewPrivileges=true
+PrivateTmp=true
+PrivateDevices=true
+ProtectSystem=strict
+ProtectHome=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+RestrictSUIDSGID=true
+LockPersonality=true
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX
+ReadWritePaths=/var/lib/totp-gen
+CapabilityBoundingSet=
+
+[Install]
+WantedBy=multi-user.target
