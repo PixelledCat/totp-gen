@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="dark">
   <meta name="theme-color" content="#000000">
-  <meta name="description" content="A minimal TOTP generator. Codes are generated in your browser; the secret is sent to the server only when you create a share link.">
+  <meta name="description" content="Generates six-digit two-factor authentication codes from a Base32 secret. Codes are produced in your browser, and a secret is sent to the server only when you create a temporary share link.">
   <title>TOTP Generator</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css">
@@ -34,7 +34,7 @@
 
     <section class="output" id="output" hidden>
       <div class="otp-row">
-        <output class="otp" id="otp" for="secret"></output>
+        <output class="otp" id="otp" for="secret" title="Click to copy"></output>
         <button class="copy" id="copy" type="button">Copy</button>
       </div>
 

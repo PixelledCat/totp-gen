@@ -612,6 +612,7 @@ function initCreator() {
 }
 
 copyBtn.addEventListener('click', copyOtp);
+otpEl.addEventListener('click', copyOtp);
 
 const recipient = recipientToken();
 if (recipient) {

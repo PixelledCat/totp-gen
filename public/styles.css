@@ -120,6 +120,7 @@ body {
   letter-spacing: 0.12em;
   font-variant-numeric: tabular-nums;
   color: var(--text);
+  cursor: pointer;
 }
 
 .copy {
