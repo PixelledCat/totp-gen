@@ -1,5 +1,5 @@
 const CONFIG = {
-  period: 60,
+  period: 30,
   digits: 6,
   algorithm: 'SHA-1',
 };

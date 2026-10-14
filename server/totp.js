@@ -12,7 +12,7 @@ const HMAC_ALGORITHMS = {
   'SHA-512': 'sha512',
 };
 
-const DEFAULT_PERIOD = 60;
+const DEFAULT_PERIOD = 30;
 const DEFAULT_DIGITS = 6;
 const DEFAULT_ALGORITHM = 'SHA-1';
 const MIN_PERIOD = 15;

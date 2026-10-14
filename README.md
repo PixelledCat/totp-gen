@@ -52,7 +52,7 @@ TOTP), and a client-first design so the common case (just check my code) never t
 2. `app.js` decodes the secret to bytes and computes the TOTP in-browser: HMAC-SHA-1 over an
    8-byte big-endian time counter, dynamic truncation, mod 10^6.
 3. A `requestAnimationFrame` loop redraws the countdown and recomputes at each period boundary
-   (default 60 seconds).
+   (default 30 seconds, the standard used by most authenticators including Microsoft).
 
 Secrets shorter than 8 Base32 characters are rejected. Because it uses `crypto.subtle`, the page
 only functions in a secure context (HTTPS or `localhost`).
@@ -101,7 +101,7 @@ All responses are `Cache-Control: no-store`.
 | `GET /code` | Fetch the current code for an existing session | `Bearer <session>` |
 | `POST /links/:id/revoke` | Revoke a link permanently | `Bearer <revokeToken>` |
 
-Parameters default to `period: 60`, `digits: 6`, `algorithm: SHA-1`. `period` may be 15–300
+Parameters default to `period: 30`, `digits: 6`, `algorithm: SHA-1`. `period` may be 15–300
 seconds, `digits` is 6 or 8, and `algorithm` is one of `SHA-1`, `SHA-256`, `SHA-512`.
 
 Errors are plain JSON (`{"error": "…"}`); expired or revoked links return `410` with a `reason`,
